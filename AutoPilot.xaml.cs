@@ -24,6 +24,7 @@ namespace FlightSimulator.Views
     public partial class AutoPilot : UserControl
     {
         private AutoPilotViewModel vm;
+        //private ICommand _command;
     
         public AutoPilot()
         {
@@ -35,28 +36,35 @@ namespace FlightSimulator.Views
                 DataContext = vm;
 
 
-                vm.PropertyChanged +=
-                delegate (Object sender, PropertyChangedEventArgs e) { Dispatcher.InvokeAsync(() => { userText.Background = Brushes.White; }); };
+                //vm.PropertyChanged +=
+                //delegate (Object sender, PropertyChangedEventArgs e) { Dispatcher.InvokeAsync(() => { userText.Background = Brushes.White; }); };
 
                 }
         }
 
+        //public ICommand OkCommand
+        //{
+        //    get
+        //    {
+        //        return _command ?? (_command = new CommandHandler(() => OkButton()));
+        //    }
+        //} 
         
+        //private void OkButton()
+        //{
+        //    List<string> commands;
+        //    string str = userText.Text;
+        //    if (str != "")
+        //    {
+        //        userText.Background = Brushes.Pink;
+        //        commands = str.Split(new string[] { "\r\n" }, StringSplitOptions.None).ToList();
+        //        vm.SendCommands(commands);
+        //    }
+        //}
 
-
-        private void Ok_Click(object sender, RoutedEventArgs e)
-        {
-            userText.Background = Brushes.Pink;
-            List<string> commands;
-            string str = userText.Text;
-            //commands = str.Split().ToList();
-            commands=str.Split(new string[] { "\r\n" }, StringSplitOptions.None).ToList();
-            vm.SendCommands(commands);
-        }
-
-        private void Clear_Click(object sender, RoutedEventArgs e)
-        {
-            userText.Text = String.Empty;
-        }
+        //private void Clear_Click(object sender, RoutedEventArgs e)
+        //{
+        //    userText.Text = String.Empty;
+        //}
     }
 }
