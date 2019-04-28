@@ -139,8 +139,6 @@ namespace FlightSimulator.Views
             set
             {
                 vm = new JoystickViewModel(value);
-                //DataContext = vm;
-
             }
         }
 
